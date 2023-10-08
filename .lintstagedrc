@@ -1,0 +1,3 @@
+{
+  "*.ts,*.mts,*.cts": "eslint --cache --cache-location .eslintcache --fix"
+}
