@@ -1,24 +1,22 @@
 {
-  "name": "@kainstar/typescript-npm-package-template",
+  "name": "@kainstar/vite-plugin-i18next-loader",
   "version": "1.0.0",
-  "description": "A template for creating npm packages using TypeScript and VSCode",
+  "description": "Vite plugin loader for client embedded i18next locales composited from one to many json or yaml files.",
   "sideEffects": false,
   "type": "module",
   "exports": {
     ".": {
       "types": "./dist/index.d.ts",
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.cjs"
+      "import": "./dist/index.js"
     }
   },
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.mjs",
+  "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "unbuild",
+    "build": "tsc",
     "cm": "cz",
     "clean": "rimraf lib",
     "lint": "eslint src",
@@ -28,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kainstar/typescript-npm-package-template.git"
+    "url": "git+https://github.com/kainstar/vite-plugin-i18next-loader.git"
   },
   "license": "MIT",
   "author": {
@@ -36,20 +34,26 @@
     "email": "15249633+kainstar@users.noreply.github.com",
     "url": "https://github.com/kainstar"
   },
-  "engines": {
-    "node": ">=18.0"
-  },
   "keywords": [
-    "boilerplate",
-    "template",
-    "typescript",
-    "vscode",
-    "semantic-release"
+    "vite",
+    "plugin",
+    "vite-plugin",
+    "loader",
+    "i18next",
+    "locales",
+    "yaml",
+    "json"
   ],
   "bugs": {
-    "url": "https://github.com/kainstar/typescript-npm-package-template/issues"
+    "url": "https://github.com/kainstar/vite-plugin-i18next-loader/issues"
   },
-  "homepage": "https://github.com/kainstar/typescript-npm-package-template#readme",
+  "homepage": "https://github.com/kainstar/vite-plugin-i18next-loader#readme",
+  "dependencies": {
+    "deepmerge": "^4.3.1",
+    "dot-prop": "^8.0.0",
+    "globby": "^13.2.2",
+    "js-yaml": "^4.1.0"
+  },
   "devDependencies": {
     "@commitlint/cli": "^17.7.1",
     "@commitlint/config-conventional": "^17.7.0",
@@ -59,6 +63,7 @@
     "@semantic-release/github": "^9.2.0",
     "@semantic-release/npm": "^11.0.0",
     "@semantic-release/release-notes-generator": "^12.0.0",
+    "@types/js-yaml": "^4.0.6",
     "@types/node": "^20.7.0",
     "@typescript-eslint/eslint-plugin": "^6.7.3",
     "@typescript-eslint/parser": "^6.7.3",
@@ -76,8 +81,11 @@
     "semantic-release": "^22.0.5",
     "ts-node": "^10.9.1",
     "typescript": "^5.2.2",
-    "unbuild": "^2.0.0",
+    "vite": "^4.4.11",
     "vitest": "^0.34.5"
+  },
+  "peerDependencies": {
+    "vite": ">=4"
   },
   "config": {
     "commitizen": {
