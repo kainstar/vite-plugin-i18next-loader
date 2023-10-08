@@ -12,7 +12,7 @@ import {
   jsNormalizedLang,
   loadAndParse,
   resolvePaths,
-} from './utils';
+} from './utils.js';
 
 export interface Options {
   /**
