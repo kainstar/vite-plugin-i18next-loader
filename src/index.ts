@@ -1,4 +1,3 @@
-import merge from 'deepmerge';
 import { setProperty } from 'dot-prop';
 import path from 'node:path';
 import { createLogger, Plugin } from 'vite';
@@ -43,7 +42,8 @@ export interface Options {
 }
 
 export interface ResBundle {
-  [key: string]: string | object;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  [lang: string]: Record<string, any>;
 }
 
 const factory = ({
@@ -58,7 +58,7 @@ const factory = ({
     const localeDirs = resolvePaths(paths, process.cwd());
     assertExistence(localeDirs);
 
-    let appResBundle: ResBundle = {};
+    const appResBundle: ResBundle = {};
     const loadedFiles: string[] = [];
     let allLangs: Set<string> = new Set();
 
@@ -68,9 +68,6 @@ const factory = ({
       allLangs = new Set([...allLangs, ...langs]);
 
       for (const lang of langs) {
-        const resBundle: ResBundle = {};
-        resBundle[lang] = {};
-
         const langDir = path.join(nextLocaleDir, lang); // top level lang dir
         const langFiles = globbySync(include, {
           cwd: langDir,
@@ -79,16 +76,13 @@ const factory = ({
 
         for (const langFile of langFiles) {
           loadedFiles.push(langFile); // track for fast hot reload matching
-
           const content = loadAndParse(langFile);
 
           const namespaceFilepath = path.relative(langDir, langFile);
           const extname = path.extname(langFile);
           const namespaceParts = namespaceFilepath.replace(extname, '').split(path.sep);
           const namespace = [lang].concat(i18nNS, namespaceParts).join('.');
-          setProperty(resBundle, namespace, content);
-
-          appResBundle = merge(appResBundle, resBundle);
+          setProperty(appResBundle, namespace, content);
         }
       }
     });
