@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/kainstar/vite-plugin-i18next-loader/compare/v1.0.1...v1.0.2) (2023-10-19)
+
+
+### Bug Fixes
+
+* remove merge to avoid duplicate item ([e822273](https://github.com/kainstar/vite-plugin-i18next-loader/commit/e82227365e6933a51a28b5ff94d8cdcbfc401869))
+
 ## [1.0.1](https://github.com/kainstar/vite-plugin-i18next-loader/compare/v1.0.0...v1.0.1) (2023-10-08)
 
 
