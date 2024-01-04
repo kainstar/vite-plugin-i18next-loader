@@ -258,8 +258,8 @@ If you are using [i18n-ally](https://marketplace.visualstudio.com/items?itemName
 }
 ```
 
-[build-img]: https://github.com/kainstar/@kainstar/vite-plugin-i18next-loader/actions/workflows/release.yml/badge.svg
-[build-url]: https://github.com/kainstar/@kainstar/vite-plugin-i18next-loader/actions/workflows/release.yml
+[build-img]: https://github.com/kainstar/vite-plugin-i18next-loader/actions/workflows/release.yml/badge.svg
+[build-url]: https://github.com/kainstar/vite-plugin-i18next-loader/actions/workflows/release.yml
 [downloads-img]: https://img.shields.io/npm/dt/@kainstar/vite-plugin-i18next-loader
 [downloads-url]: https://www.npmtrends.com/@kainstar/vite-plugin-i18next-loader
 [npm-img]: https://img.shields.io/npm/v/@kainstar/vite-plugin-i18next-loader
