@@ -1,3 +1,10 @@
+## [1.0.3](https://github.com/kainstar/vite-plugin-i18next-loader/compare/v1.0.2...v1.0.3) (2024-03-15)
+
+
+### Bug Fixes
+
+* remove custom ws event ([f56e068](https://github.com/kainstar/vite-plugin-i18next-loader/commit/f56e0681f434d91207f5f3a9531b2a6062425dc2))
+
 ## [1.0.2](https://github.com/kainstar/vite-plugin-i18next-loader/compare/v1.0.1...v1.0.2) (2023-10-19)
 
 
