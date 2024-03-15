@@ -8,7 +8,7 @@ This vite-plugin i18next loader generates the `resources` structure necessary fo
 
 ## Credit
 
-This was forked from [alienfast/vite-plugin-i18next-loader](https://github.com/alienfast/vite-plugin-i18next-loader), simplified and add better vite HMR support. Thanks to the original authors and contributors.
+This was forked from [alienfast/vite-plugin-i18next-loader](https://github.com/alienfast/vite-plugin-i18next-loader), simplified options and better vite HMR support. Thanks to the original authors and contributors.
 
 ## Install
 

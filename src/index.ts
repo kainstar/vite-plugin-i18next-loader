@@ -29,14 +29,14 @@ export interface Options {
   /**
    * i18next namespace
    *
-   * Default: 'translation'
+   * @default 'translation'
    */
   i18nNS?: string;
 
   /**
    * Glob patterns to match files
    *
-   * Default: ['**\/*.json', '**\/*.yml', '**\/*.yaml']
+   * @default ['**\/*.json', '**\/*.yml', '**\/*.yaml']
    */
   include?: string[];
 }
@@ -146,14 +146,10 @@ const factory = ({
           timestamp: true,
         });
 
-        const { moduleGraph, ws } = server;
+        const { moduleGraph } = server;
 
         const module = moduleGraph.getModuleById(I18nResolvedVirtualModuleId);
         if (module) {
-          ws.send({
-            type: 'custom',
-            event: 'locales-update',
-          });
           await server.reloadModule(module);
         }
       }
