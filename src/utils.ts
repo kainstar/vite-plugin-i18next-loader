@@ -8,7 +8,7 @@ export const I18nVirtualModuleId = 'virtual:i18next-loader';
 export const I18nResolvedVirtualModuleId = '\0' + I18nVirtualModuleId;
 
 export function jsNormalizedLang(lang: string) {
-  return lang.replace(/-/, '_');
+  return lang.replace(/-/g, '_');
 }
 
 export function enumerateLangs(dir: string) {
