@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/kainstar/vite-plugin-i18next-loader/compare/v1.1.0...v1.1.1) (2025-06-10)
+
+
+### Bug Fixes
+
+* replace all dash to underscore for identify ([7ae3614](https://github.com/kainstar/vite-plugin-i18next-loader/commit/7ae3614bdd3848aa5d353fc6dfe10275005578b9))
+
 ## [1.1.0](https://github.com/kainstar/vite-plugin-i18next-loader/compare/v1.0.3...v1.1.0) (2025-06-10)
 
 
