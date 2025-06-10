@@ -5,7 +5,7 @@ import YAML from 'js-yaml';
 // don't export these from index so the external types are cleaner
 export const I18nVirtualModuleId = 'virtual:i18next-loader';
 
-export const I18nResolvedVirtualModuleId = '\0' + I18nVirtualModuleId;
+export const I18nResolvedVirtualModuleId = `\0${I18nVirtualModuleId}`;
 
 export function jsNormalizedLang(lang: string) {
   return lang.replace(/-/g, '_');
@@ -38,7 +38,6 @@ export function assertExistence(paths: string[]) {
 export function loadAndParse(langFile: string) {
   const fileContent = fs.readFileSync(langFile, 'utf-8');
   const extname = path.extname(langFile);
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   let parsedContent: any = {};
 
   try {

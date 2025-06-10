@@ -1,7 +1,9 @@
 import { setProperty } from 'dot-prop';
 import path from 'node:path';
-import { createLogger, Plugin } from 'vite';
-import { globbySync, Options as GlobbyOptions } from 'globby';
+import type { Plugin } from 'vite';
+import { createLogger } from 'vite';
+import type { Options as GlobbyOptions } from 'globby';
+import { globbySync } from 'globby';
 
 import {
   assertExistence,
@@ -47,7 +49,6 @@ export interface Options {
 }
 
 export interface ResBundle {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   [lang: string]: Record<string, any>;
 }
 
@@ -89,7 +90,7 @@ const factory = ({
           const extname = path.extname(langFile);
           const namespaceParts = namespaceFilepath.replace(extname, '').split(path.sep);
           const namespace = [lang]
-            .concat(i18nNS ? i18nNS : '', namespaceParts)
+            .concat(i18nNS || '', namespaceParts)
             .filter((v) => v) // remove empty str
             .join('.');
           setProperty(appResBundle, namespace, content);
@@ -98,7 +99,7 @@ const factory = ({
     });
 
     if (debug) {
-      log.info('Bundling locales (ordered least specific to most):\n' + loadedFiles.map((f) => '\t' + f).join('\n'), {
+      log.info(`Bundling locales (ordered least specific to most):\n${loadedFiles.map((f) => `\t${f}`).join('\n')}`, {
         timestamp: true,
       });
     }
