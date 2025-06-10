@@ -1,7 +1,7 @@
 import { setProperty } from 'dot-prop';
 import path from 'node:path';
 import { createLogger, Plugin } from 'vite';
-import { globbySync } from 'globby';
+import { globbySync, Options as GlobbyOptions } from 'globby';
 
 import {
   assertExistence,
@@ -31,7 +31,7 @@ export interface Options {
    *
    * @default 'translation'
    */
-  i18nNS?: string;
+  i18nNS?: string | false;
 
   /**
    * Glob patterns to match files
@@ -39,6 +39,11 @@ export interface Options {
    * @default ['**\/*.json', '**\/*.yml', '**\/*.yaml']
    */
   include?: string[];
+
+  /**
+   * custom globby options
+   */
+  globbyOptions?: GlobbyOptions;
 }
 
 export interface ResBundle {
@@ -49,6 +54,7 @@ export interface ResBundle {
 const factory = ({
   paths,
   include = ['**/*.json', '**/*.yml', '**/*.yaml'],
+  globbyOptions,
   i18nNS = 'translation',
   debug,
 }: Options) => {
@@ -70,6 +76,7 @@ const factory = ({
       for (const lang of langs) {
         const langDir = path.join(nextLocaleDir, lang); // top level lang dir
         const langFiles = globbySync(include, {
+          ...globbyOptions,
           cwd: langDir,
           absolute: true,
         }); // all lang files matching patterns in langDir
@@ -81,7 +88,10 @@ const factory = ({
           const namespaceFilepath = path.relative(langDir, langFile);
           const extname = path.extname(langFile);
           const namespaceParts = namespaceFilepath.replace(extname, '').split(path.sep);
-          const namespace = [lang].concat(i18nNS, namespaceParts).join('.');
+          const namespace = [lang]
+            .concat(i18nNS ? i18nNS : '', namespaceParts)
+            .filter((v) => v) // remove empty str
+            .join('.');
           setProperty(appResBundle, namespace, content);
         }
       }
