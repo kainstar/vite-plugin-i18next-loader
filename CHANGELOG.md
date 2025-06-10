@@ -1,3 +1,10 @@
+## [1.1.0](https://github.com/kainstar/vite-plugin-i18next-loader/compare/v1.0.3...v1.1.0) (2025-06-10)
+
+
+### Features
+
+* support globbyOptions and allow disable i18nNS ([5d83bd3](https://github.com/kainstar/vite-plugin-i18next-loader/commit/5d83bd323f1ab034879775b0e32843daf83b8e35))
+
 ## [1.0.3](https://github.com/kainstar/vite-plugin-i18next-loader/compare/v1.0.2...v1.0.3) (2024-03-15)
 
 
