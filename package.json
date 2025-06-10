@@ -1,6 +1,6 @@
 {
   "name": "@kainstar/vite-plugin-i18next-loader",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Vite plugin loader for client embedded i18next locales composited from one to many json or yaml files.",
   "sideEffects": false,
   "type": "module",
